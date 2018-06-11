@@ -59,6 +59,6 @@ class __TwigTemplate_c7d5dd38fce2f9e51e0278203c3a4d7c4a60a04017180588f2b2267a0e1
 {{ status_code }} {{ status_text }}
 
 */
-", "@Twig/Exception/error.css.twig", "C:\\xampp\\htdocs\\SymphArt\\vendor\\symfony\\twig-bundle\\Resources\\views\\Exception\\error.css.twig");
+", "@Twig/Exception/error.css.twig", "C:\\xampp\\htdocs\\SymphArt_2\\vendor\\symfony\\twig-bundle\\Resources\\views\\Exception\\error.css.twig");
     }
 }

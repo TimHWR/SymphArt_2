@@ -152,6 +152,6 @@ class __TwigTemplate_95e153e563d942d156e106f7cc2437ff8ef66346265c8b9549e4e250389
         {% block javascripts %}{% endblock %}
     </body>
 </html>
-", "base.html.twig", "C:\\xampp\\htdocs\\SymphArt\\templates\\base.html.twig");
+", "base.html.twig", "C:\\xampp\\htdocs\\SymphArt_2\\templates\\base.html.twig");
     }
 }

@@ -100,6 +100,6 @@ class __TwigTemplate_8c8a65b1b4aa0079ee2730654fffc9303e412858b43954b6bed2c1e9802
 <hr>
 <a href=\"/\">Go Back</a>
 
-{% endblock %}", "articles/show.html.twig", "C:\\xampp\\htdocs\\SymphArt\\templates\\articles\\show.html.twig");
+{% endblock %}", "articles/show.html.twig", "C:\\xampp\\htdocs\\SymphArt_2\\templates\\articles\\show.html.twig");
     }
 }

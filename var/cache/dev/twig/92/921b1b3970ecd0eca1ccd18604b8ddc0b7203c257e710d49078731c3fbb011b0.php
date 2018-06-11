@@ -77,6 +77,6 @@ class __TwigTemplate_5fbaee153315dcc267c35d645f795942b54769c466b6c347b24dbfeea8a
             </ul>
         </div>
     </div>
-</nav>", "included/navbar.html.twig", "C:\\xampp\\htdocs\\SymphArt\\templates\\included\\navbar.html.twig");
+</nav>", "included/navbar.html.twig", "C:\\xampp\\htdocs\\SymphArt_2\\templates\\included\\navbar.html.twig");
     }
 }

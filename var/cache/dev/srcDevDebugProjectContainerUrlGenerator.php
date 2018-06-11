@@ -21,7 +21,11 @@ class srcDevDebugProjectContainerUrlGenerator extends Symfony\Component\Routing\
         if (null === self::$declaredRoutes) {
             self::$declaredRoutes = array(
         'article_list' => array(array(), array('_controller' => 'App\\Controller\\ArticleController::index'), array(), array(array('text', '/')), array(), array()),
+        'new_article' => array(array(), array('_controller' => 'App\\Controller\\ArticleController::new'), array(), array(array('text', '/article/new')), array(), array()),
+        'edit_article' => array(array('id'), array('_controller' => 'App\\Controller\\ArticleController::edit'), array(), array(array('variable', '/', '[^/]++', 'id'), array('text', '/article/edit')), array(), array()),
         'article_show' => array(array('id'), array('_controller' => 'App\\Controller\\ArticleController::show'), array(), array(array('variable', '/', '[^/]++', 'id'), array('text', '/article')), array(), array()),
+        'signal' => array(array(), array('_controller' => 'App\\Controller\\ArticleController::signal'), array(), array(array('text', '/signal')), array(), array()),
+        'app_article_deletearticle' => array(array('id'), array('_controller' => 'App\\Controller\\ArticleController::deleteArticle'), array(), array(array('variable', '/', '[^/]++', 'id'), array('text', '/article/delete')), array(), array()),
         '_twig_error_test' => array(array('code', '_format'), array('_controller' => 'twig.controller.preview_error::previewErrorPageAction', '_format' => 'html'), array('code' => '\\d+'), array(array('variable', '.', '[^/]++', '_format'), array('variable', '/', '\\d+', 'code'), array('text', '/_error')), array(), array()),
     );
         }

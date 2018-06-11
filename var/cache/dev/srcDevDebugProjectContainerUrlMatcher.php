@@ -65,14 +65,15 @@ class srcDevDebugProjectContainerUrlMatcher extends Symfony\Bundle\FrameworkBund
             default:
                 $routes = array(
                     '/' => array(array('_route' => 'article_list', '_controller' => 'App\\Controller\\ArticleController::index'), null, array('GET' => 0), null),
+                    '/article/new' => array(array('_route' => 'new_article', '_controller' => 'App\\Controller\\ArticleController::new'), null, array('GET' => 0, 'POST' => 1), null),
                     '/signal' => array(array('_route' => 'signal', '_controller' => 'App\\Controller\\ArticleController::signal'), null, null, null),
                 );
-
+    
                 if (!isset($routes[$pathinfo])) {
                     break;
                 }
                 list($ret, $requiredHost, $requiredMethods, $requiredSchemes) = $routes[$pathinfo];
-
+    
                 $hasRequiredScheme = !$requiredSchemes || isset($requiredSchemes[$context->getScheme()]);
                 if ($requiredMethods && !isset($requiredMethods[$canonicalMethod]) && !isset($requiredMethods[$requestMethod])) {
                     if ($hasRequiredScheme) {
@@ -84,15 +85,19 @@ class srcDevDebugProjectContainerUrlMatcher extends Symfony\Bundle\FrameworkBund
                     $allowSchemes += $requiredSchemes;
                     break;
                 }
-
+    
                 return $ret;
         }
 
         $matchedPathinfo = $pathinfo;
         $regexList = array(
             0 => '{^(?'
-                    .'|/article/([^/]++)(*:24)'
-                    .'|/_error/(\\d+)(?:\\.([^/]++))?(*:59)'
+                    .'|/article/(?'
+                        .'|edit/([^/]++)(*:32)'
+                        .'|([^/]++)(*:47)'
+                        .'|delete/([^/]++)(*:69)'
+                    .')'
+                    .'|/_error/(\\d+)(?:\\.([^/]++))?(*:105)'
                 .')$}sD',
         );
 
@@ -101,18 +106,20 @@ class srcDevDebugProjectContainerUrlMatcher extends Symfony\Bundle\FrameworkBund
                 switch ($m = (int) $matches['MARK']) {
                     default:
                         $routes = array(
-                            24 => array(array('_route' => 'article_show', '_controller' => 'App\\Controller\\ArticleController::show'), array('id'), null, null),
-                            59 => array(array('_route' => '_twig_error_test', '_controller' => 'twig.controller.preview_error::previewErrorPageAction', '_format' => 'html'), array('code', '_format'), null, null),
+                            32 => array(array('_route' => 'edit_article', '_controller' => 'App\\Controller\\ArticleController::edit'), array('id'), array('GET' => 0, 'POST' => 1), null),
+                            47 => array(array('_route' => 'article_show', '_controller' => 'App\\Controller\\ArticleController::show'), array('id'), null, null),
+                            69 => array(array('_route' => 'app_article_deletearticle', '_controller' => 'App\\Controller\\ArticleController::deleteArticle'), array('id'), array('DELETE' => 0), null),
+                            105 => array(array('_route' => '_twig_error_test', '_controller' => 'twig.controller.preview_error::previewErrorPageAction', '_format' => 'html'), array('code', '_format'), null, null),
                         );
-
+            
                         list($ret, $vars, $requiredMethods, $requiredSchemes) = $routes[$m];
-
+            
                         foreach ($vars as $i => $v) {
                             if (isset($matches[1 + $i])) {
                                 $ret[$v] = $matches[1 + $i];
                             }
                         }
-
+            
                         $hasRequiredScheme = !$requiredSchemes || isset($requiredSchemes[$context->getScheme()]);
                         if ($requiredMethods && !isset($requiredMethods[$canonicalMethod]) && !isset($requiredMethods[$requestMethod])) {
                             if ($hasRequiredScheme) {
@@ -124,11 +131,11 @@ class srcDevDebugProjectContainerUrlMatcher extends Symfony\Bundle\FrameworkBund
                             $allowSchemes += $requiredSchemes;
                             break;
                         }
-
+            
                         return $ret;
                 }
 
-                if (59 === $m) {
+                if (105 === $m) {
                     break;
                 }
                 $regex = substr_replace($regex, 'F', $m - $offset, 1 + strlen($m));

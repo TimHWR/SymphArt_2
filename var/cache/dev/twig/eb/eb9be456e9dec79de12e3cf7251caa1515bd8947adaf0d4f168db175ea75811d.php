@@ -186,6 +186,6 @@ class __TwigTemplate_71e621569ded51036098ec22bd786d700dc95256bd2ffaf745e99a63f4c
         {{ include('@Twig/base_js.html.twig') }}
     </body>
 </html>
-", "@Twig/layout.html.twig", "C:\\xampp\\htdocs\\SymphArt\\vendor\\symfony\\twig-bundle\\Resources\\views\\layout.html.twig");
+", "@Twig/layout.html.twig", "C:\\xampp\\htdocs\\SymphArt_2\\vendor\\symfony\\twig-bundle\\Resources\\views\\layout.html.twig");
     }
 }

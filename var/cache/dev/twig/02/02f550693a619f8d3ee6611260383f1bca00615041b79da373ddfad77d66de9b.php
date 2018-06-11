@@ -155,6 +155,6 @@ class __TwigTemplate_69986b6984b8ceb2fab3c8b837e2d77957c2e901162f3e39df427dcddda
         <p>No articles to display</p>
     {% endif %}
 
-{% endblock %}", "articles/index.html.twig", "C:\\xampp\\htdocs\\SymphArt\\templates\\articles\\index.html.twig");
+{% endblock %}", "articles/index.html.twig", "C:\\xampp\\htdocs\\SymphArt_2\\templates\\articles\\index.html.twig");
     }
 }

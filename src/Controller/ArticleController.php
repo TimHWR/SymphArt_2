@@ -36,7 +36,7 @@ class ArticleController extends Controller {
     public function signal() {
         $data = $this->getDoctrine()->getRepository(Article::class)->findAllArticlesWith('Signal');
 
-        return new Response('Ausgabe:\n'.json_encode($data));
+        return new Response('Hallo Ausgabe:\n'.json_encode($data));
     }
 
     /**
